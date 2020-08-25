@@ -7,7 +7,8 @@ of a TVB (github.com/the-virtual-brain) model with EEG data,
 
 time series (top) and fitted spectra (bottom).
 
-On a i7-4770HQ 4-core @ 2.2 GHz,
+On a i7-4770HQ, running optimizers for 100 iterations (i.e. not much)
+on a perturbation from ground truth,
 
 ```bash
 $ python3 ag.py 
@@ -18,11 +19,4 @@ ll truth 13.601
      tnc: ll 22.866 .................... 21.522, 206 feval, 50.450s, 153.291 evals/rll
 ```
 which puts the stochastic gradient techniques well ahead of
-traditional optimizers from scipy.optimize.  Using Jax,
-```bash
-python3 jx.py 
-/home/duke/.local/lib/python3.8/site-packages/jax/lib/xla_bridge.py:130: UserWarning: No GPU/TPU found, falling back to CPU.
-  warnings.warn('No GPU/TPU found, falling back to CPU.')
-
-```
-<h6>well it didn't finish, not sure why </h6>
+traditional optimizers from scipy.optimize.

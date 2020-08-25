@@ -2,7 +2,7 @@ import time
 import numpy as onp
 from jax import numpy as np, grad, random, jit
 from jax.ops import index, index_add, index_update
-#from autograd.misc.optimizers import adam, rmsprop, sgd
+from autograd.misc.optimizers import adam, rmsprop, sgd
 from scipy.optimize import minimize
 
 # simplification of the generic 2d oscillator
@@ -77,7 +77,7 @@ x0_ = np.concatenate([state_.reshape((-1, )), theta_])
 # run different optimizers for certain number of iterations
 # and compare performance (in reduction of log loss (rrl) per loss eval)
 max_iter = 100
-for opt in 'bfgs tnc'.split():
+for opt in 'adam rmsprop bfgs tnc'.split():
     tic = time.time()
     print(opt.rjust(8), end=': ')
     x0 = x0_.copy()
